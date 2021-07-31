@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row" id="nav-bar">
+    <nav class="navbar navbar-expand fixed-top">
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item" *ngIf="this.isUserAvailable">
+            <a class="nav-link" href routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="!this.isUserAvailable">
+            <a class="nav-link" href routerLink="/signup">Sign Up</a>
+          </li>
+          <li class="nav-item" *ngIf="!this.isUserAvailable">
+            <a class="nav-link" href routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="this.isUserAvailable">
+            <a class="nav-link" href (click)="this.logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row m-3">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

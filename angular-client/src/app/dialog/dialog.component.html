@@ -1,0 +1,8 @@
+<div mat-dialog-title>
+  <p *ngIf="data.name.length >0">{{data.name}} win ! Play Again ?</p>
+  <p *ngIf="data.message.length>0">{{data.message}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-primary btn-sm m-2" (click)="playGame()">Play</button>
+  <button mat-button class="btn btn-outline-secondary btn-sm m-2" (click)="close()" cdkFocusInitial>NO</button>
+</div>

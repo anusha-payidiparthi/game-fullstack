@@ -1,0 +1,19 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6 pt-2 pb-2" *ngFor="let game of gamesList; index as i;">
+                        <p>{{game.name}}</p>
+                        <button type="button" class="btn btn-outline-primary btn-sm"
+                            (click)="playGame(game)">Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 pt-2">
+                <span>Previous played Games</span>
+            </div>
+        </div>
+    </div>
+</div>
