@@ -7,7 +7,7 @@ const UserRouter = require('./routes/user-router');
 const GamesRouter = require('./routes/games-router');
 
 const app = express()
-const apiPort = 3500
+const apiPort = 8080
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
