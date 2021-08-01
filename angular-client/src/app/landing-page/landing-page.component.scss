@@ -11,12 +11,16 @@ div {
     margin: auto;
 }
 
+// p {
+//     position: absolute;
+//     /* top: auto; */
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     text-align: center;
+//     line-height: 50px;
+// }
+h1,
 p {
-    position: absolute;
-    /* top: auto; */
-    bottom: 0;
-    left: 0;
-    right: 0;
     text-align: center;
-    line-height: 50px;
 }

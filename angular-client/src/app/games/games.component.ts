@@ -42,20 +42,18 @@ export class GamesComponent implements OnInit {
       this.commentary.push('Dragon attacked you by ' + val);
 
       if (this.playerHealth <= 0) {
-        clearInterval(this.dragonInterval);
-        this.openDialog({ name: 'Dragon', message: '' });
+        this.gameStatus({ name: 'Dragon', message: '' }, 'Dragon won the game !!');
       }
     }, 1000);
   }
 
   attack() {
     const val = Math.floor(Math.random() * 10) + 1;
-    this.dragonHealth = this.dragonHealth > 0 ? this.dragonHealth - val : 0;
+    this.dragonHealth = this.dragonHealth - val > 0 ? this.dragonHealth - val : 0;
     this.commentary.push('You attacked Dragon by ' + val);
 
     if (this.dragonHealth <= 0) {
-      clearInterval(this.dragonInterval);
-      this.openDialog({ name: 'You', message: '' });
+      this.gameStatus({ name: 'You', message: '' }, 'You won the game !!');
     }
   }
 
@@ -63,8 +61,9 @@ export class GamesComponent implements OnInit {
     this.dragonHealth = (this.dragonHealth - 20) > 0 ? this.dragonHealth - 20 : 0;
     this.commentary.push('You Power attacked Dragon by ' + 20);
     if (this.dragonHealth <= 0) {
-      clearInterval(this.dragonInterval);
-      this.openDialog({ name: 'Dragon', message: '' });
+      this.gameStatus({ name: 'You', message: '' }, 'You won the game !! ');
+    } else if (this.playerHealth <= 0) {
+      this.gameStatus({ name: 'Dragon', message: '' }, 'Dragon won the game !! ');
     }
   }
 
@@ -72,16 +71,25 @@ export class GamesComponent implements OnInit {
     const val = Math.floor(Math.random() * 10) + 1;
     this.playerHealth = (this.playerHealth + val) <= 100 ? this.playerHealth + val : this.playerHealth;
     this.commentary.push('Your health is healed by ' + val);
+
+    if (this.dragonHealth <= 0) {
+      this.gameStatus({ name: 'You', message: '' }, 'You won the game !! ');
+    } else if (this.playerHealth <= 0) {
+      this.gameStatus({ name: 'Dragon', message: '' }, 'Dragon won the game !! ');
+    }
   }
 
   giveUp() {
     this.playerHealth = 0;
-    clearTimeout(this.timeInterval);
-    clearInterval(this.dragonInterval);
-    this.commentary.push('You gaveup the game !! ');
-    this.openDialog({ name: 'Dragon', message: '' });
+    this.gameStatus({ name: 'Dragon', message: '' }, 'You gaveup the game !! ');
   }
 
+  gameStatus(data: any, comment: string) {
+    clearTimeout(this.timeInterval);
+    clearInterval(this.dragonInterval);
+    this.commentary.push(comment);
+    this.openDialog(data);
+  }
 
 
   openDialog(data: any): void {
