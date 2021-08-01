@@ -1,11 +1,12 @@
 <div class="container pt-5">
-    <div class="row">
+    <div class="row" style="text-align: center;">
         <div class="row">
             <div class="col">
                 <div class="row">
                     <div class="col-6 pt-2 pb-2" *ngFor="let game of gamesList; index as i;">
                         <!-- <h1>{{game.name}}</h1> -->
-                        <button type="button" class="btn btn-outline-dark btn-lg" (click)="playGame(game)">{{game.name}}</button>
+                        <button type="button" class="btn btn-outline-dark btn-lg"
+                            (click)="playGame(game)">{{game.name}}</button>
                     </div>
                 </div>
             </div>
