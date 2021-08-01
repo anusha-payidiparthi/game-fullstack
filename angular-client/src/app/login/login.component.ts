@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
+    this.userData.password = btoa(this.userData.password);
     this.userService.userLogin(this.userData).subscribe((res: any) => {
       if (res.success) {
         this.globalDataService.set('user_data', res.data);
