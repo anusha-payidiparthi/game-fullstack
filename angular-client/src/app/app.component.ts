@@ -15,6 +15,11 @@ export class AppComponent {
     this.subscription = this.globalDataService.loggedInSubject.subscribe((message) => {
       this.isUserAvailable = message;
     });
+    if (window.localStorage.getItem('user_data')) {
+      this.isUserAvailable = true;
+    } else {
+      this.isUserAvailable = false;
+    }
   }
 
 

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class GamesService {
-    private baseURL = 'http://localhost:3500/games/';
+    private baseURL = 'https://games-fullstack.wl.r.appspot.com/games/';
     private gamesURL = this.baseURL + 'fetchGames';
 
 

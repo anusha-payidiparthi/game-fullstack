@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class UserService {
-    private baseURL = 'http://localhost:3500/api/';
+    private baseURL = 'https://games-fullstack.wl.r.appspot.com/api/';
     private signupURL = this.baseURL + 'signup';
     private loginURL = this.baseURL + 'login'
     private updateGames = this.baseURL + 'games-played'
